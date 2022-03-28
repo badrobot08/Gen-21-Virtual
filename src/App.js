@@ -1,19 +1,35 @@
-import React from 'react'
-import ClassStateForm from './Forms in react/ClassStateForm'
-import ClassState from './state component/ClassState'
-import FunctionalState from './state component/FunctionalState'
-
-
-
-
+import React, { useState } from "react";
+import Form from "./CRUD/CrudForm";
+import "bootstrap/dist/css/bootstrap.min.css";
+import CrudTable from "./CRUD/CrudTable";
 
 function App() {
+  const [persons, setPersons] = useState([
+    {
+      personName: "Setso",
+      description: "Very  at programming",
+    },
+    {
+      personName: "Adwoa",
+      description: "Very  at Ampe",
+    },
+  ]);
+
+  const updateState = (userName, userDescription) => {
+    const newUser = {
+      personName: userName,
+      description: userDescription,
+    };
+
+    setPersons([...persons, newUser]);
+  };
+  console.log(persons);
   return (
     <div>
-     <ClassStateForm/>
+      <Form inputData={updateState} />
+      <CrudTable data={persons} />
     </div>
-  )
+  );
 }
 
-
-export default App
+export default App;
