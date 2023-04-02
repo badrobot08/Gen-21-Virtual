@@ -8,6 +8,7 @@ export default function (props) {
           <div key={index}>
             <h1>{item.personName}</h1>
             <h1>{item.description}</h1>
+            hh
             <hr />
           </div>
         );
